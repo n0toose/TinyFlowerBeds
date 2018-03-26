@@ -24,7 +24,7 @@ def generate_batch():
     tweet = ''.join(batch)
     return tweet
 
-def start():
+def main():
     while True:
         try:
             api.update_status(generate_batch())
@@ -32,16 +32,15 @@ def start():
         except tweepy.TweepError:
             time.sleep(hour * cooldown)
 
-try:
-    auth = tweepy.OAuthHandler(cons_key, cons_sec)
-    auth.set_access_token(access_key, access_sec)
-    api = tweepy.API(auth)
-    print("Successfully logged on!")
-    start()
-except tweepy.TweepError:
-    print("Authentication Error!")
-    print("The credentials you supplied were probably incorrect.")
-    time.sleep(10)
-    quit()
-
-
+if __name__ = '__main__':
+    try:
+        auth = tweepy.OAuthHandler(cons_key, cons_sec)
+        auth.set_access_token(access_key, access_sec)
+        api = tweepy.API(auth)
+        print("Successfully logged on!")
+        main()
+    except tweepy.TweepError:
+        print("Authentication Error!")
+        print("The credentials you supplied were probably incorrect.")
+        time.sleep(10)
+        quit()
