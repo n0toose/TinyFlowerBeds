@@ -1,7 +1,8 @@
-# tiny flower beds
-Random Twitter bot I made out of boredom. This script generates a bed of flowers every few hours and tweets it out.
+# TinyFlowerBeds
+"Tiny Flower Beds" is a bot that posts a tiny flower bed on Twitter every few hours.
+It is licensed under the GPL license.
 
-# Live Demo
-A live demo of my script can be viewed here; https://twitter.com/tinyflowerbeds
+### Live Demo
+A live demo of my bot can be viewed here; https://twitter.com/tinyflowerbeds
 
-🌹
+### 🌹
