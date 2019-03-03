@@ -1,1 +1,1 @@
-worker: python flower_bot.py
+worker: python bot.py
