@@ -102,9 +102,10 @@ class Bot:
         '''
         batch = ''
         counter = 0
-        while counter < limit:
+        while counter != limit:
             batch += random.choice(config['emojis'])
             counter += 1
+        print(len(batch))
         tweet = '\n'.join(textwrap.wrap(batch, config['limit_per_line']))
         return tweet
 
@@ -114,10 +115,15 @@ class Bot:
         '''
         while True:
             try:
-                api.update_status(self.generate_batch())
-                logging.info("Tweeted out a new flower bed!")
-                logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown))
-                time.sleep(cooldown)
+                if not os.getenv('CI') == True:
+                    api.update_status(self.generate_batch())
+                    logging.info("Tweeted out a new flower bed!")
+                    logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown))
+                    time.sleep(cooldown)
+                else:
+                    logging.critical("CI detected! Skipping tweet.")
+                    logging.critical("Everything seems to be fine. Exiting...")
+                    exit()
             except tweepy.RateLimitError:
                 logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
                 time.sleep(cooldown)

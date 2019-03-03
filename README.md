@@ -12,12 +12,12 @@ The bot will check for a file called `credentials.py`.
 
 `credentials.py` should have the following format:
 
-`
-CONSUMER_KEY = '<CONSUMER KEY>'
-CONSUMER_SECRET = '<CONSUMER SECRET>'
-ACCESS_KEY = '<ACCESS KEY>'
-ACCESS_SECRET = '<ACCESS SECRET>'
-`
+
+`CONSUMER_KEY = '<CONSUMER KEY>'`
+`CONSUMER_SECRET = '<CONSUMER SECRET>'`
+`ACCESS_KEY = '<ACCESS KEY>'`
+`ACCESS_SECRET = '<ACCESS SECRET>'`
+
 
 By default, this bot will prioritize environment variables over the `credentials.py` file.
 
