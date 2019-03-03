@@ -6,6 +6,19 @@ import tweepy
 import time, random
 import logging, os                                                                                                                                                     
 
+print("""
+TinyFlowerBeds
+
+Copyright (C) 2018-2019 AlwaysLivid
+
+This program utilizes the GNU license.
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to 
+redistribute it under certain conditions.
+
+Please read the LICENSE file for more information.
+""")
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(name)s - %(asctime)s - %(levelname)s - %(message)s', 
