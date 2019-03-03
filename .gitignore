@@ -1,6 +1,7 @@
 # Custom files
 __pycache__/
 credentials.py
+log.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
