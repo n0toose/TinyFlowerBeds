@@ -16,8 +16,11 @@ The bot will check for a file called `credentials.py`.
 
 
 `CONSUMER_KEY = '<CONSUMER KEY>'`
+
 `CONSUMER_SECRET = '<CONSUMER SECRET>'`
+
 `ACCESS_KEY = '<ACCESS KEY>'`
+
 `ACCESS_SECRET = '<ACCESS SECRET>'`
 
 
@@ -28,6 +31,7 @@ If you believe that environment variables are more convenient for you, then you 
 * CONSUMER_SECRET
 * ACCESS_KEY
 * ACCESS_SECRET
+
 ... and assign those keys to their respective values.
 
 ### Live Demo
