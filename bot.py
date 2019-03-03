@@ -115,7 +115,7 @@ class Bot:
         '''
         while True:
             try:
-                if os.getenv('CI') == true or os.getenv('CONTINUOUS_INTEGRATION') == true:
+                if not (os.getenv('CI') == None) or not (os.getenv('CONTINUOUS_INTEGRATION') == None):
                     logging.critical("CI detected! Skipping tweet.")
                     logging.critical("Everything seems to be fine. Exiting...")
                     exit()
