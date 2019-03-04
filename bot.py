@@ -9,19 +9,20 @@
 import tweepy
 import time, random
 import logging, os, textwrap
-import threading
 
 print("""
-TinyFlowerBeds
+                       TinyFlowerBeds
 
-Copyright (C) 2018-2019 AlwaysLivid
+            Copyright (C) 2018-2019 AlwaysLivid
 
-This program utilizes the GNU license.
+=============================================================
+======================= DISCLAIMER ==========================
+=============================================================
 This program comes with ABSOLUTELY NO WARRANTY.
-This is free software, and you are welcome to 
-redistribute it under certain conditions.
+This is free software, and you are welcome to redistribute it
+under certain conditions; read the LICENSE file for details.
+=============================================================
 
-Please read the LICENSE file for more information.
 """)
 
 logging.basicConfig(
@@ -115,7 +116,7 @@ class Bot:
         '''
         while True:
             try:
-                if not (os.getenv('CI') == None) or not (os.getenv('CONTINUOUS_INTEGRATION') == None):
+                if (os.getenv('CI') == True) or (os.getenv('CONTINUOUS_INTEGRATION') == True):
                     logging.critical("CI detected! Skipping tweet.")
                     logging.critical("Everything seems to be fine. Exiting...")
                     exit()

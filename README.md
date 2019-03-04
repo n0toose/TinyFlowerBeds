@@ -14,29 +14,35 @@ The bot will check for a file called `credentials.py`.
 
 `credentials.py` should have the following format:
 
-
-`CONSUMER_KEY = '<CONSUMER KEY>'`
-
-`CONSUMER_SECRET = '<CONSUMER SECRET>'`
-
-`ACCESS_KEY = '<ACCESS KEY>'`
-
-`ACCESS_SECRET = '<ACCESS SECRET>'`
+```
+CONSUMER_KEY = '<CONSUMER KEY>'
+CONSUMER_SECRET = '<CONSUMER SECRET>'
+ACCESS_KEY = '<ACCESS KEY>'
+ACCESS_SECRET = '<ACCESS SECRET>'
+```
 
 
 By default, this bot will prioritize environment variables over the `credentials.py` file.
 
 If you believe that environment variables are more convenient for you, then you will need to register the following keys:
+```
 * CONSUMER_KEY
 * CONSUMER_SECRET
 * ACCESS_KEY
 * ACCESS_SECRET
+```
 
 ... and assign those keys to their respective values.
 
-### Live Demo
-A live demo of my bot can be viewed here; https://twitter.com/tinyflowerbeds
+## Requirements
 
-Should you host your own variation of this bot, please include the link to my account in the biog
+* Python 3 (*not* 3.7+)
+* [Twitter API Credentials](https://dev.twitter.com)
+
+
+### Live Demo
+A live demonstration of my bot can be viewed [here.](https://twitter.com/tinyflowerbeds)
+
+Should you host your own variation of this bot, please include the link to my account in the biography of the account. The `config` dictionary can be freely adjusted to your needs.
 
 ### 🌹
