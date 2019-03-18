@@ -9,6 +9,7 @@
 import tweepy
 import time, random
 import logging, os, textwrap
+from config import *
 
 print("""
                        TinyFlowerBeds
@@ -33,13 +34,6 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
-config = {
-    'limit_per_line': 4,
-    'lines': 4,
-    'hours_to_wait': 2,
-    'emojis': ["🌻", "🌱", "🌸", "🌷" "💮", "🌺", "🌹", "🌼", "🌿", "🌿", "🌷"]
-}
 
 hour_in_minutes = 3600
 cooldown = config['hours_to_wait'] * hour_in_minutes
