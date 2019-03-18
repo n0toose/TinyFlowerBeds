@@ -33,7 +33,7 @@ If you believe that environment variables are more convenient for you, then you 
 
 ## Prerequisites
 
-* Python 3.3 (*not* 3.7+)
+* Python 3.6.7 is recommended. (*not* 3.7+)
 * [Your Twitter account's API credentials.](https://dev.twitter.com)
 
 ### Live Demo
