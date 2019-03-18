@@ -1,6 +1,6 @@
+# TinyFlowerBeds
 [![Build Status](https://travis-ci.org/alwayslivid/TinyFlowerBeds.svg?branch=master)](https://travis-ci.org/alwayslivid/TinyFlowerBeds)
 
-# TinyFlowerBeds
 "Tiny Flower Beds" is a bot that posts a tiny flower bed on Twitter every few hours.
 It is licensed under the GPL license.
 
