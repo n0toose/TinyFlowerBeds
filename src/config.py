@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 config = {
-    'limit_per_line': 7,
-    'lines': 3,
+    'limit_per_line': 4,
+    'lines': 4,
     'hours_to_wait': 2,
     'emojis': ["🌻", "🌱", "🌸", "🌷" "💮", "🌺", "🌹", "🌼", "🌿", "🌿", "🌷"]
 }
