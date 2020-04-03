@@ -43,7 +43,7 @@ Should you host your own variation of this bot, please include the link to my ac
 
 ## Authors
 
-* **Panos V.** - *Initial work.* - [AlwaysLivid](https://alwayslivid.com)
+* **Panagiotis Vasilopoulos** - *Initial work.* - [AlwaysLivid](https://alwayslivid.com)
 
 ## License
 
