@@ -37,8 +37,12 @@ logging.basicConfig(
 
 mininterval = config['mininterval']
 maxinterval = config['maxinterval']
-cooldown = randint(mininterval, maxinterval) * 24 * 3600
+
+cooldown = randint(mininterval, maxinterval) * 24 * 60 *60
+#converting the input of minimum and maximum interval from days, to seconds
+
 limit = config['lines'] * config['limit_per_line']
+
 
 credential_list = ["CONSUMER_KEY", "CONSUMER_SECRET", "ACCESS_KEY", "ACCESS_SECRET"]
 use_environment_variables = bool
