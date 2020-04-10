@@ -38,7 +38,7 @@ logging.basicConfig(
 mininterval = config['mininterval']
 maxinterval = config['maxinterval']
 
-cooldown = randint(mininterval, maxinterval) * 24 * 60 *60
+cooldown = random.randint(mininterval, maxinterval) * 24 * 60 *60
 # converts the random value from days to seconds
 
 limit = config['lines'] * config['limit_per_line']
