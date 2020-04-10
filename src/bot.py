@@ -37,9 +37,7 @@ logging.basicConfig(
 
 mininterval = config['mininterval']
 maxinterval = config['maxinterval']
-hours_to_wait = randint(mininterval, maxinterval) * 24
-hour_in_minutes = 3600
-cooldown = hours_to_wait * hour_in_minutes
+cooldown = randint(mininterval, maxinterval) * 24 * 3600
 limit = config['lines'] * config['limit_per_line']
 
 credential_list = ["CONSUMER_KEY", "CONSUMER_SECRET", "ACCESS_KEY", "ACCESS_SECRET"]
