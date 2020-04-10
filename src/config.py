@@ -6,6 +6,7 @@ import random
 config = {
     'limit_per_line': 4,
     'lines': 4,
-    'hours_to_wait': 72,
+    'mininterval': 2,
+    'maxinterval': 5,
     'emojis': ["🌻", "🌱", "🌸", "🌷", "💮", "🌺", "🌹", "🌼", "🌿", "🌿", "🌷"]
 }
