@@ -7,9 +7,10 @@
 '''
 
 import tweepy
-import time, random
+import time
 import logging, os, textwrap
 from config import *
+from random import randint
 
 print("""
                        TinyFlowerBeds
@@ -38,7 +39,7 @@ logging.basicConfig(
 mininterval = config['mininterval']
 maxinterval = config['maxinterval']
 
-cooldown = random.randint(mininterval, maxinterval) * 24 * 60 *60
+cooldown = randint(mininterval, maxinterval) * 24 * 60 * 60
 # converts the random value from days to seconds
 
 limit = config['lines'] * config['limit_per_line']
