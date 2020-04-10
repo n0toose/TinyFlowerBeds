@@ -39,7 +39,7 @@ mininterval = config['mininterval']
 maxinterval = config['maxinterval']
 
 cooldown = randint(mininterval, maxinterval) * 24 * 60 *60
-#converting the input of minimum and maximum interval from days, to seconds
+# converts the random value from days to seconds
 
 limit = config['lines'] * config['limit_per_line']
 
