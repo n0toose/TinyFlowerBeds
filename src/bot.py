@@ -35,9 +35,14 @@ logging.basicConfig(
     ]
 )
 
-hour_in_minutes = 3600
-cooldown = config['hours_to_wait'] * hour_in_minutes
+mininterval = config['mininterval']
+maxinterval = config['maxinterval']
+
+cooldown = randint(mininterval, maxinterval) * 24 * 60 *60
+# converts the random value from days to seconds
+
 limit = config['lines'] * config['limit_per_line']
+
 
 credential_list = ["CONSUMER_KEY", "CONSUMER_SECRET", "ACCESS_KEY", "ACCESS_SECRET"]
 use_environment_variables = bool
