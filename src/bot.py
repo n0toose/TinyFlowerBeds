@@ -15,7 +15,8 @@ from random import randint
 print("""
                        TinyFlowerBeds
 
-            Copyright (C) 2018-2019 AlwaysLivid
+         Copyright (C) 2018-2020  
+	 Source code and contributors available at https://github.com/AlwaysLivid/TinyFlowerBeds
 
 =============================================================
 ======================= DISCLAIMER ==========================
