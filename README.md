@@ -41,9 +41,10 @@ A live demonstration of my bot can be viewed [here.](https://twitter.com/tinyflo
 
 Should you host your own variation of this bot, please include the link to my account in the biography of the account. The `config` dictionary can be freely adjusted to your needs.
 
-## Authors
+## Contributors
 
-* **Panagiotis Vasilopoulos** - *Initial work.* - [AlwaysLivid](https://alwayslivid.com)
+* **Panagiotis Vasilopoulos** - *Initial work, maintainer.* - [AlwaysLivid](https://alwayslivid.com)
+* **karl01101101** - *Worked on day randomization* - [GitHub](https://github.com/karl01101101)
 
 ## License
 
