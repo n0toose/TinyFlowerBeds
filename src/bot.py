@@ -24,8 +24,6 @@ under certain conditions; read the LICENSE file for details.
 =============================================================
 """)
 
-FLAG = True
-
 logging.basicConfig(
     level=logging.INFO,
     format='%(name)s - %(asctime)s - %(levelname)s - %(message)s', 
@@ -39,7 +37,6 @@ mininterval = config['mininterval']
 maxinterval = config['maxinterval']
 
 cooldown = randint(mininterval, maxinterval) * 24 * 60 * 60
-
 # converts the random value from days to seconds
 
 limit = config['lines'] * config['limit_per_line']
@@ -123,23 +120,16 @@ class Bot:
                 else:
                     api.update_status(self.generate_batch())
                     logging.info("Tweeted out a new flower bed!")
-                    logging.info("The next tweet is scheduled to be made in {} seconds".format(cooldown))
+                    logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown))
                     time.sleep(cooldown)
-                    raise tweepy.TweepError("error")
-            except Exception as ex:
-                exception = type(ex).__name__
-                
-                if exception == 'RateLimitError':
-                    logging.critical("Tweeting failed due to ratelimit. Waiting {} more seconds.".format(cooldown))
-                    time.sleep(cooldown)
-                else:
-                    logging.critical("TweepError not RateLimitError.")
-                    
+            except tweepy.RateLimitError:
+                logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
+                time.sleep(cooldown)
+
     def main(self):
         '''
         Main function that takes care of the authentication and the threading.
         '''
-        
         logging.info("Attempting to login!")
         auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
         auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
@@ -151,15 +141,13 @@ class Bot:
 
 if __name__ == '__main__':
     try:
-        FLAG = True
         TwitterBot = Bot()
         TwitterBot.main()
-        
-    except Exception as ex:
-        exception = type(ex).__name__
-        
-        if exception == 'TweepError':
-            logging.critical("Authentication Error!")
-            logging.info("Please validate your credentials.")
-            time.sleep(10)
-            quit()
+    except tweepy.RateLimitError:
+        logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
+        time.sleep(cooldown)
+    except tweepy.TweepError:
+      logging.critical("Authentication Error!")
+      logging.info("Please validate your credentials.")
+      time.sleep(10)
+      quit()
