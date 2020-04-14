@@ -1,16 +1,20 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+'''
+@author: AlwaysLivid
+@description: Bot that posts a tiny flower bed on Twitter every few hours.
+'''
 
 import tweepy
 import time
 import logging, os, textwrap
 from config import *
 from random import randint
-import sys
-import credentials
+
 print("""
                        TinyFlowerBeds
-
             Copyright (C) 2018-2019 AlwaysLivid
-
 =============================================================
 ======================= DISCLAIMER ==========================
 =============================================================
@@ -18,8 +22,9 @@ This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions; read the LICENSE file for details.
 =============================================================
-
 """)
+
+FLAG = True
 
 logging.basicConfig(
     level=logging.INFO,
@@ -34,9 +39,52 @@ mininterval = config['mininterval']
 maxinterval = config['maxinterval']
 
 cooldown = randint(mininterval, maxinterval) * 24 * 60 * 60
+
 # converts the random value from days to seconds
 
 limit = config['lines'] * config['limit_per_line']
+
+
+credential_list = ["CONSUMER_KEY", "CONSUMER_SECRET", "ACCESS_KEY", "ACCESS_SECRET"]
+use_environment_variables = bool
+use_file_variables = bool
+amount_of_credentials = len(credential_list)
+credential_counter = 0
+
+CONSUMER_KEY = str
+CONSUMER_SECRET = str
+ACCESS_KEY = str
+ACCESS_SECRET = str
+
+for credential in credential_list:
+    if credential_list[0] in os.environ:
+        credential_counter += 1
+
+if credential_counter == amount_of_credentials:
+    logging.info("All environment variables were found!")
+    use_environment_variables = True
+    use_file_variables = False
+else:
+    logging.warning("Environment variables were not successfully found!")
+    logging.info("Using credentials.py instead.")
+    use_environment_variables = False
+    use_file_variables = True
+
+if use_environment_variables == True:
+    logging.info("Using environment variables.")
+    CONSUMER_KEY = os.environ['CONSUMER_KEY']
+    CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
+    ACCESS_KEY = os.environ['ACCESS_KEY']
+    ACCESS_SECRET = os.environ['ACCESS_SECRET']
+elif use_file_variables == True:
+    logging.info("Using file variables.")
+    try:
+        from credentials import *
+    except ImportError:
+        logging.critical("An error occured while importing the credentials from the credentials.py file.")
+        logging.critical("The bot will now shut down.")
+        logging.info("Please check the README.md file for more information.")
+        exit()
 
 class Bot:
     def user_info(self, api, user): 
@@ -75,40 +123,43 @@ class Bot:
                 else:
                     api.update_status(self.generate_batch())
                     logging.info("Tweeted out a new flower bed!")
-                    logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown))
+                    logging.info("The next tweet is scheduled to be made in {} seconds".format(cooldown))
                     time.sleep(cooldown)
-            except:
-                print(sys.exc_info())
-                logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
-                time.sleep(cooldown)
+                    raise tweepy.TweepError("error")
+            except Exception as ex:
+                exception = type(ex).__name__
                 
+                if exception == 'RateLimitError':
+                    logging.critical("Tweeting failed due to ratelimit. Waiting {} more seconds.".format(cooldown))
+                    time.sleep(cooldown)
+                else:
+                    logging.critical("TweepError not RateLimitError.")
+                    
     def main(self):
         '''
         Main function that takes care of the authentication and the threading.
         '''
+        
         logging.info("Attempting to login!")
-
-
-        # Authenticate to Twitter
         auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
         auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-
         api = tweepy.API(auth)
-
-        try:
-            api.verify_credentials()
-            logging.info("Successfully logged in!")
-            self.tweet_loop(api)
-        except:
-            print("Error during authentication")
-
+        user = api.me()
+        self.user_info(api, user)
+        logging.info("Successfully logged in!")
+        self.tweet_loop(api)
 
 if __name__ == '__main__':
     try:
-        
+        FLAG = True
         TwitterBot = Bot()
-        
         TwitterBot.main()
-    except:
-      print(sys.exc_info())
-      quit()
+        
+    except Exception as ex:
+        exception = type(ex).__name__
+        
+        if exception == 'TweepError':
+            logging.critical("Authentication Error!")
+            logging.info("Please validate your credentials.")
+            time.sleep(10)
+            quit()
