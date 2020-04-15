@@ -143,6 +143,9 @@ if __name__ == '__main__':
     try:
         TwitterBot = Bot()
         TwitterBot.main()
+        
+        
+        
     except tweepy.RateLimitError:
         logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
         time.sleep(cooldown)
@@ -150,4 +153,8 @@ if __name__ == '__main__':
       logging.critical("Authentication Error!")
       logging.info("Please validate your credentials.")
       time.sleep(10)
+      quit()
+    except Exception as ex:
+      logging.critical("Exception {} has occured.".format( type(ex).__name__))
+      logging.critical("The app will now exit")
       quit()
