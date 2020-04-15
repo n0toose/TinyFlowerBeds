@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 '''
@@ -15,9 +15,9 @@ from random import randint
 print("""
          	TinyFlowerBeds
 
-       Copyright (C) 2018-2020  
-	 Source code and contributors list available at 
-	 https://github.com/AlwaysLivid/TinyFlowerBeds/contributors
+Copyright (C) 2018-2020  
+Source code and contributors list available at 
+https://github.com/AlwaysLivid/TinyFlowerBeds/contributors
 
 =============================================================
 ======================= DISCLAIMER ==========================
