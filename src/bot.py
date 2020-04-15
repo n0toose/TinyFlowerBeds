@@ -14,7 +14,9 @@ from random import randint
 
 print("""
                        TinyFlowerBeds
+
             Copyright (C) 2018-2019 AlwaysLivid
+
 =============================================================
 ======================= DISCLAIMER ==========================
 =============================================================
@@ -22,6 +24,7 @@ This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions; read the LICENSE file for details.
 =============================================================
+
 """)
 
 logging.basicConfig(
