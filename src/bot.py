@@ -13,11 +13,11 @@ from config import *
 from random import randint
 
 print("""
-                       TinyFlowerBeds
+         	TinyFlowerBeds
 
-         Copyright (C) 2018-2020  
+    Copyright (C) 2018-2020  
 	 Source code and contributors list available at 
-	 https://github.com/AlwaysLivid/TinyFlowerBeds
+	 https://github.com/AlwaysLivid/TinyFlowerBeds/contributors
 
 =============================================================
 ======================= DISCLAIMER ==========================
