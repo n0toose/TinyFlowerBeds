@@ -126,8 +126,9 @@ class Bot:
                     logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown))
                     time.sleep(cooldown)
             except tweepy.RateLimitError:
-                logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
-                time.sleep(cooldown)
+                    logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
+                    time.sleep(cooldown)
+            
 
     def main(self):
         '''
@@ -147,7 +148,6 @@ if __name__ == '__main__':
         TwitterBot = Bot()
         TwitterBot.main()
     except tweepy.TweepError:
-      logging.critical("Authentication Error!")
-      logging.info("Please validate your credentials.")
-      time.sleep(10)
+      logging.critical("Authentication error!")
+      logging.info("Please validate your credentials.") 
       quit()
