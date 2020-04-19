@@ -149,5 +149,5 @@ if __name__ == '__main__':
     except tweepy.TweepError:
       logging.critical("Authentication Error!")
       logging.info("Please validate your credentials.")
-      time.sleep(10)
-      quit()
+      input("Press any key to exit...")
+      raise SystemExit
