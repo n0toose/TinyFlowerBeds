@@ -13,7 +13,7 @@ from config import *
 from random import randint
 
 print("""                                                  
-                      	TinyFlowerBeds             
+              TinyFlowerBeds             
                                                   
               Copyright (C) 2018-2020             
 	 Source code and contributors list available at  
