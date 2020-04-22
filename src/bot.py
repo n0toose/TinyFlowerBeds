@@ -12,11 +12,11 @@ import logging, os, textwrap
 from config import *
 from random import randint
 
-print("""
-         	TinyFlowerBeds
-
-    Copyright (C) 2018-2020  
-	 Source code and contributors list available at 
+print("""                                                  
+                      	TinyFlowerBeds             
+                                                  
+              Copyright (C) 2018-2020             
+	 Source code and contributors list available at  
 	 https://github.com/AlwaysLivid/TinyFlowerBeds/contributors
 
 =============================================================
