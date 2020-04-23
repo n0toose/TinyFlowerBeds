@@ -132,10 +132,7 @@ class Bot:
             except tweepy.RateLimitError:
                     logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
                     time.sleep(cooldown)
- 
- 
- 
- 
+
 
     def main(self):
         '''
@@ -156,12 +153,27 @@ if __name__ == '__main__':
         TwitterBot.main()
     except tweepy.TweepError:
         logging.critical("Authentication Error!")
-        
+        # WE NEED TO WRITE A CHECK FOR os.environ['inHerokuInstance']
         if os.environ['inHerokuInstance'] == "True":
             logging.info("Please validate your credentials.")
+            logging.info("Set proper credentials in the Environment Variable.")
+            logging.info("Check the README file for more details.")
             quit()
         else:
             configuration = configparser.ConfigParser()
             configuration.read('./src/config.ini')
+            _credentials = []
             if configuration.has_section('credentials'):
-                pass
+                try:
+                    for c in credential_list:
+                        _credentials.append(configuration['credentials'][c])
+                        # READ THE CREDENTIALS FROM config.ini
+                    for i in range(4):
+                        os.environ[credential_list[i]] = _credentials[i]
+                    # Write the credentials to the environment variables
+                    logging.info("All credentials found in config.ini")
+                    logging.info("Setting environment variables from config.ini")
+                    logging.info("Restart the bot again.")
+                except KeyError:
+                    logging.critical("credentials have not been set.")
+                    logging.info("Please set your credentials.")
