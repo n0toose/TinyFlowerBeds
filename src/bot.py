@@ -132,7 +132,7 @@ class Bot:
             except tweepy.RateLimitError:
                     logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
                     time.sleep(cooldown)
-
+            
 
     def main(self):
         '''
