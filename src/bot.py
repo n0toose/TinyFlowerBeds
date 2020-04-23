@@ -11,6 +11,7 @@ import time
 import logging, os, textwrap
 from config import *
 from random import randint
+import configparser
 
 print("""
                        TinyFlowerBeds
@@ -55,6 +56,9 @@ CONSUMER_KEY = str
 CONSUMER_SECRET = str
 ACCESS_KEY = str
 ACCESS_SECRET = str
+os.environ['inHerokuInstance'] = "False"
+
+
 
 for credential in credential_list:
     if credential_list[0] in os.environ:
@@ -128,7 +132,10 @@ class Bot:
             except tweepy.RateLimitError:
                     logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
                     time.sleep(cooldown)
-            
+ 
+ 
+ 
+ 
 
     def main(self):
         '''
@@ -148,11 +155,13 @@ if __name__ == '__main__':
         TwitterBot = Bot()
         TwitterBot.main()
     except tweepy.TweepError:
-      logging.critical("Authentication Error!")
-      logging.info("Please validate your credentials.") 
-      quit()
-    except Exception as ex:
-      logging.critical("Exception {} has occured.".format( type(ex).__name__))
-      logging.critical("The app will now exit")
-      quit()
-    
+        logging.critical("Authentication Error!")
+        
+        if os.environ['inHerokuInstance'] == "True":
+            logging.info("Please validate your credentials.")
+            quit()
+        else:
+            configuration = configparser.ConfigParser()
+            configuration.read('./src/config.ini')
+            if configuration.has_section('credentials'):
+                pass
