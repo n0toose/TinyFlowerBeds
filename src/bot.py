@@ -8,6 +8,7 @@
 
 import tweepy
 import time
+import configparser
 import logging, os, textwrap
 from config import *
 from random import randint
@@ -79,7 +80,12 @@ if use_environment_variables == True:
 elif use_file_variables == True:
     logging.info("Using file variables.")
     try:
-        from credentials import *
+        config = configparser.ConfigParser()
+        config.read('config.txt')
+       	CONSUMER_KEY = config['credentials']['CONSUMER_KEY']
+    	CONSUMER_SECRET = config['credentials']['CONSUMER_SECRET']
+    	ACCESS_KEY = config['credentials']['ACCESS_KEY']
+    	ACCESS_SECRET = config['credentials']['ACCESS_SECRET']
     except ImportError:
         logging.critical("An error occured while importing the credentials from the credentials.py file.")
         logging.critical("The bot will now shut down.")
