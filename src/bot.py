@@ -10,7 +10,6 @@ import tweepy
 import time
 import configparser
 import logging, os, textwrap
-from config import *
 from random import randint
 
 print("""
