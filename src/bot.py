@@ -153,6 +153,6 @@ if __name__ == '__main__':
         TwitterBot = Bot()
         TwitterBot.main()
     except tweepy.TweepError:
-      logging.critical("Authentication error!")
-      logging.info("Please validate your credentials.") 
-      quit()
+        logging.critical("Authentication error!")
+        logging.info("Please validate your credentials.") 
+        quit()
