@@ -10,9 +10,9 @@ In order to use this bot, you'll need to have access to the Twitter API.
 
 You can request access and get your credentials [here.](https://dev.twitter.com)
 
-The bot will check for a file called `credentials.py`.
+The bot will check for a file called `config.txt`.
 
-`credentials.py` should have the following format:
+`config.txt` should have the following format:
 
 ```
 CONSUMER_KEY = '<CONSUMER KEY>'
@@ -22,7 +22,7 @@ ACCESS_SECRET = '<ACCESS SECRET>'
 ```
 
 
-By default, this bot will prioritize environment variables over the `credentials.py` file.
+By default, this bot will prioritize environment variables over the `config.txt` file.
 
 If you believe that environment variables are more convenient for you, then you will need to register the following keys:
 * CONSUMER_KEY
