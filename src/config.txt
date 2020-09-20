@@ -1,5 +1,13 @@
 [credentials]
-CONSUMER_KEY = 
-CONSUMER_SECRET = 
-ACCESS_KEY = 
-ACCESS_SECRET = 
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_KEY = ""
+ACCESS_SECRET = ""
+
+[intervals]
+mininterval = 2
+maxinterval = 5
+
+[formatting]
+lines = 4
+limit_per_line = 4
