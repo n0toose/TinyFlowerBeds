@@ -10,6 +10,7 @@ import tweepy
 import time
 import configparser
 import logging, os, textwrap
+import random
 from random import randint
 
 print("""
@@ -36,15 +37,9 @@ logging.basicConfig(
     ]
 )
 
-mininterval = config['mininterval']
-maxinterval = config['maxinterval']
+emojis = ["🌻", "🌱", "🌸", "🌷", "💮", "🌺", "🌹", "🌼", "🌿", "🌿", "🌷"]
 
-cooldown = randint(mininterval, maxinterval) * 24 * 60 * 60
-# converts the random value from days to seconds
-
-limit = config['lines'] * config['limit_per_line']
-
-
+config_path = "src/config.txt"
 credential_list = ["CONSUMER_KEY", "CONSUMER_SECRET", "ACCESS_KEY", "ACCESS_SECRET"]
 use_environment_variables = bool
 use_file_variables = bool
@@ -80,7 +75,16 @@ elif use_file_variables == True:
     logging.info("Using file variables.")
     try:
         config = configparser.ConfigParser()
-        config.read('config.txt')
+        config.read(config_path)
+
+        mininterval = int(config['intervals']['mininterval'])
+        maxinterval = int(config['intervals']['maxinterval'])
+
+        cooldown = randint(mininterval, maxinterval) * 24 * 60 * 60
+        # converts the random value from days to seconds
+
+        limit = int(config['formatting']['lines']) * int(config['formatting']['limit_per_line'])
+
        	CONSUMER_KEY = config['credentials']['CONSUMER_KEY']
         CONSUMER_SECRET = config['credentials']['CONSUMER_SECRET']
         ACCESS_KEY = config['credentials']['ACCESS_KEY']
@@ -109,10 +113,10 @@ class Bot:
         batch = ''
         counter = 0
         while counter != limit:
-            batch += random.choice(config['emojis'])
+            batch += random.choice(emojis)
             counter += 1
-        batch = batch[:16] # Temporary hack
-        tweet = '\n'.join(textwrap.wrap(batch, config['limit_per_line']))
+            if counter > 16: break
+        tweet = '\n'.join(textwrap.wrap(batch, int(config['formatting']['limit_per_line'])))
         return tweet
 
     def tweet_loop(self, api):
