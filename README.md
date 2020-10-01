@@ -12,19 +12,19 @@ You can request access and get your credentials [here.](https://dev.twitter.com)
 
 The bot will check for a file called `config.txt`.
 
-`config.txt` should have the following format (remove '<>' ):
+`config.txt` should have the following format:
 
-```bash
+```
 CONSUMER_KEY = '<CONSUMER KEY>'
 CONSUMER_SECRET = '<CONSUMER SECRET>'
 ACCESS_KEY = '<ACCESS KEY>'
 ACCESS_SECRET = '<ACCESS SECRET>'
 ```
 
+
 By default, this bot will prioritize environment variables over the `config.txt` file.
 
 If you believe that environment variables are more convenient for you, then you will need to register the following keys:
-
 * CONSUMER_KEY
 * CONSUMER_SECRET
 * ACCESS_KEY
@@ -40,6 +40,11 @@ If you believe that environment variables are more convenient for you, then you 
 A live demonstration of my bot can be viewed [here.](https://twitter.com/tinyflowerbeds)
 
 Should you host your own variation of this bot, please include the link to my account in the biography of the account. The `config` dictionary can be freely adjusted to your needs.
+
+## Contributors
+
+* **Panagiotis Vasilopoulos** - *Initial work, maintainer.* - [AlwaysLivid](https://alwayslivid.com)
+* **karl01101101** - *Worked on day randomization* - [GitHub](https://github.com/karl01101101)
 
 ## License
 
