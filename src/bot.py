@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-@author: Panagiotis Vasilopoulos ( AlwaysLivid )
+@author: Panagiotis Vasilopoulos (AlwaysLivid)
 @description: Bot that posts a tiny flower bed on Twitter every few hours.
 @contributors: https://github.com/panos/TinyFlowerBeds/graphs/contributors
 '''
