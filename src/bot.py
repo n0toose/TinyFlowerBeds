@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 '''
-@author: AlwaysLivid
+@author: Panagiotis Vasilopoulos (AlwaysLivid)
 @description: Bot that posts a tiny flower bed on Twitter every few hours.
+@contributors: https://github.com/panos/TinyFlowerBeds/graphs/contributors
 '''
 
 import tweepy
@@ -16,7 +17,7 @@ from random import randint
 print("""
                        TinyFlowerBeds
 
-            Copyright (C) 2018-2019 AlwaysLivid
+            Copyright (C) 2018-2020 AlwaysLivid
 
 =============================================================
 ======================= DISCLAIMER ==========================
