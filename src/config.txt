@@ -1,12 +1,12 @@
 [credentials]
-CONSUMER_KEY = 
-CONSUMER_SECRET = 
-ACCESS_KEY = 
-ACCESS_SECRET = 
+CONSUMER_KEY = h2HwlWXsocSTSOWLHIURzMoru
+CONSUMER_SECRET = iWjKjBz2aNjDbZQMbJVQsTFshxrmeOb6VQJk54kCbYA24rGT9H
+ACCESS_KEY = 1316389863734865921-E6WnOuGd00WPmGoVU835K3fGDq3n5D
+ACCESS_SECRET = LhCU9kijJ3UCA0gsxOwlVbCe3goJSjmqI0ZWV5dXYgyEq
 
 [intervals]
 mininterval = 2
-maxinterval = 5
+maxinterval = 3
 
 [formatting]
 lines = 4
