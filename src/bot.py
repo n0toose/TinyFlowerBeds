@@ -13,6 +13,7 @@ import configparser
 import logging, os, textwrap
 import random
 from random import randint
+from datetime import datetime, timedelta
 
 print("""
                        TinyFlowerBeds
@@ -126,17 +127,22 @@ class Bot:
         '''
         while True:
             try:
+                last_tweet_time = api.user_timeline()[0].created_at-timedelta(hours=4)
                 if not (os.getenv('CI') == None or os.getenv('CI') == False) or not (os.getenv('CONTINUOUS_INTEGRATION') == None or os.getenv('CONTINUOUS_INTEGRATION') == False):
                     logging.critical("CI detected! Skipping tweet.")
                     logging.critical("Everything seems to be fine. Exiting...")
                     exit()
-                else:
+                elif len(api.user_timeline()) == 0 or last_tweet_time+timedelta(seconds=cooldown) > datetime.now():
+                    next_tweet_time = cooldown - (datetime.now()-last_tweet_time).total_seconds()
+                    logging.info(f'The next tweet is scheduled to be made at {last_tweet_time+timedelta(seconds=cooldown)}, {int(next_tweet_time/60)} minutes from now')
+                    time.sleep(cooldown - (datetime.now()-last_tweet_time).total_seconds())
+                else: 
                     api.update_status(self.generate_batch())
                     logging.info("Tweeted out a new flower bed!")
-                    logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown))
+                    logging.info("The next tweet is scheduled to be made in {} minutes".format(cooldown/60))
                     time.sleep(cooldown)
             except tweepy.RateLimitError:
-                    logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown))
+                    logging.critical("Tweeting failed due to ratelimit. Waiting {} more minutes.".format(cooldown/60))
                     time.sleep(cooldown)
             
 
