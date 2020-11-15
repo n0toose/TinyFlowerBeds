@@ -1,7 +1,6 @@
 # TinyFlowerBeds
-[![Build Status](https://travis-ci.org/alwayslivid/TinyFlowerBeds.svg?branch=master)](https://travis-ci.org/alwayslivid/TinyFlowerBeds)
 
-"Tiny Flower Beds" is a bot that posts a tiny flower bed on Twitter every few hours.
+"TinyFlowerBeds" is a bot that posts a tiny flower bed on Twitter every few hours.
 It is licensed under the GPL license.
 
 ## Getting started
@@ -37,14 +36,14 @@ If you believe that environment variables are more convenient for you, then you 
 * [Your Twitter account's API credentials.](https://dev.twitter.com)
 
 ### Live Demo
-A live demonstration of my bot can be viewed [here.](https://twitter.com/tinyflowerbeds)
+
+A live demonstration the my bot can be viewed [here.](https://twitter.com/tinyflowerbeds)
 
 Should you host your own variation of this bot, please include the link to my account in the biography of the account. The `config` dictionary can be freely adjusted to your needs.
 
 ## Contributors
 
-* **Panagiotis Vasilopoulos** - *Initial work, maintainer.* - [AlwaysLivid](https://alwayslivid.com)
-* **karl01101101** - *Worked on day randomization* - [GitHub](https://github.com/karl01101101)
+TinyFlowerBeds is the result of the effort of multiple hobbyists and Python enthusiasts. You can view a list of the people who have contributed to the project [here](https://github.com/panos/TinyFlowerBeds/graphs/contributors).
 
 ## License
 
